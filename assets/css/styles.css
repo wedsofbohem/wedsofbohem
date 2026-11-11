@@ -1,0 +1,1112 @@
+/* ==========================================================================
+   WEDS OF BOHEM — Editorial Collection & Studio Design
+   Inspired by Oaks Wedding (Minimalist, Ivory & Deep Midnight, Editorial Masonry)
+   Thrikkodithanam, Kerala
+   ========================================================================== */
+
+:root {
+  /* Oaks Wedding Palette */
+  --bg-cream: #FAF8E9;
+  --bg-cream-alt: #F3F0DE;
+  --bg-white: #FFFFFF;
+  --bg-midnight: #010F1A;
+  --bg-midnight-card: #081B2B;
+  
+  --text-dark: #1A1A1A;
+  --text-muted: #5C5A55;
+  --text-dim: #8C887E;
+  
+  --text-light: #FFFFFF;
+  --text-light-muted: #A5B4C2;
+  
+  --border-light: rgba(26, 26, 26, 0.12);
+  --border-dark: rgba(255, 255, 255, 0.15);
+  
+  --accent-gold: #C59B6D;
+  --accent-gold-light: #DFC09C;
+  
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-editorial: 'Cormorant Garamond', Garamond, serif;
+  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-wide {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Top Bar
+   -------------------------------------------------------------------------- */
+.top-announcement {
+  background-color: #000B14;
+  color: var(--text-light-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.top-announcement strong {
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.top-announcement a {
+  color: var(--accent-gold-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Header / Navigation (Oaks Style)
+   -------------------------------------------------------------------------- */
+.header-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-midnight);
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border-dark);
+  transition: var(--transition);
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+}
+
+.brand-monogram {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  height: 60px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-monogram:hover .nav-logo-img {
+  transform: scale(1.06);
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.brand-sub {
+  font-size: 0.6rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-top: 2px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  list-style: none;
+}
+
+.nav-item a {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  padding: 0.3rem 0;
+  position: relative;
+}
+
+.nav-item a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--accent-gold);
+  transition: var(--transition);
+}
+
+.nav-item a:hover {
+  color: var(--text-light);
+}
+
+.nav-item a:hover::after,
+.nav-item a.active::after {
+  width: 100%;
+}
+
+.nav-btns {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Minimalist Pill Buttons (Oaks signature) */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-sans);
+}
+
+.btn-pill-light {
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  border: 1px solid var(--text-dark);
+}
+
+.btn-pill-light:hover {
+  background-color: var(--text-dark);
+  color: var(--bg-cream);
+}
+
+/* Dark button on light/cream backgrounds */
+.btn-pill-dark {
+  background-color: var(--bg-midnight);
+  color: #FFFFFF !important;
+  border: 1px solid var(--bg-midnight);
+  box-shadow: 0 4px 15px rgba(1, 15, 26, 0.15);
+}
+
+.btn-pill-dark:hover {
+  background-color: var(--accent-gold);
+  color: #010F1A !important;
+  border-color: var(--accent-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(197, 155, 109, 0.3);
+}
+
+/* Button on dark header/banner */
+.btn-pill-on-dark {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-pill-on-dark:hover {
+  background-color: #FFFFFF;
+  color: var(--bg-midnight);
+  border-color: #FFFFFF;
+}
+
+.btn-pill-gold {
+  background-color: var(--accent-gold);
+  color: #0E0C0A;
+  border: 1px solid var(--accent-gold);
+}
+
+.btn-pill-gold:hover {
+  background-color: var(--accent-gold-light);
+  border-color: var(--accent-gold-light);
+  transform: translateY(-1px);
+}
+
+.btn-studio-enquire {
+  padding: 0.85rem 1.9rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.btn-whatsapp-minimal {
+  background-color: #25D366;
+  color: #041407;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-whatsapp-minimal:hover {
+  background-color: #2fe071;
+  color: #000;
+  transform: translateY(-1px);
+}
+
+.mobile-menu-trigger {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   Hero / Collection Statement (Deep Midnight)
+   -------------------------------------------------------------------------- */
+.hero-midnight {
+  background-color: var(--bg-midnight);
+  color: var(--text-light);
+  padding: 6.5rem 1.5rem 5.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.hero-midnight-title {
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 300;
+  line-height: 1.1;
+  max-width: 1000px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero-midnight-title .italic {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  text-transform: none;
+  color: var(--accent-gold-light);
+  font-weight: 400;
+}
+
+.hero-midnight-sub {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  color: var(--text-light-muted);
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.hero-nav-pills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.hero-pill-tab {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-light);
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.hero-pill-tab:hover,
+.hero-pill-tab.active {
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  border-color: var(--bg-cream);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Brand Manifesto: "More Than A Wedding Studio" (Ivory Background)
+   -------------------------------------------------------------------------- */
+.section-manifesto {
+  padding: 5.5rem 0;
+  background-color: var(--bg-cream);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.manifesto-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+.manifesto-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.manifesto-heading {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.manifesto-lead {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  line-height: 1.4;
+  color: #38352F;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--accent-gold);
+}
+
+.manifesto-text {
+  font-size: 0.96rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.manifesto-text p {
+  margin-bottom: 1.2rem;
+}
+
+.manifesto-gallery-stack {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.manifesto-main-img {
+  width: 82%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-subtle);
+}
+
+.manifesto-oval-img {
+  position: absolute;
+  bottom: -2rem;
+  right: -1rem;
+  width: 48%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 4px solid var(--bg-cream);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   THE COLLECTION / FEATURED STORIES (Oaks Signature Grid)
+   -------------------------------------------------------------------------- */
+.section-collection {
+  padding: 5.5rem 0 6rem;
+  background-color: var(--bg-cream);
+}
+
+.collection-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 4rem;
+}
+
+.collection-title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.8rem;
+}
+
+.collection-sub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Asymmetric Editorial Grid */
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.story-card {
+  position: relative;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.story-card:hover {
+  transform: translateY(-4px);
+}
+
+.story-card.col-6 {
+  grid-column: span 6;
+}
+
+.story-card.col-4 {
+  grid-column: span 4;
+}
+
+.story-card.col-8 {
+  grid-column: span 8;
+}
+
+.story-img-frame {
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-cream-alt);
+}
+
+.story-card.oval-frame .story-img-frame {
+  border-radius: 999px;
+  aspect-ratio: 3 / 4;
+}
+
+.story-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-card:hover .story-img-frame img {
+  transform: scale(1.05);
+}
+
+.story-info {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.story-names {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.story-meta {
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* --------------------------------------------------------------------------
+   WHAT WE DO (Trimmed 4 Columns)
+   -------------------------------------------------------------------------- */
+.section-services {
+  padding: 5.5rem 0;
+  background-color: #F4F1E1;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.services-trimmed-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.service-item-trimmed {
+  background-color: var(--bg-cream);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 2.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.service-item-trimmed:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-subtle);
+}
+
+.service-num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--accent-gold);
+  margin-bottom: 1.2rem;
+}
+
+.service-item-title {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+.service-item-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.service-bullet-list {
+  font-size: 0.78rem;
+  color: #38352F;
+  letter-spacing: 0.05em;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   THE STUDIO: A SPACE FOR YOUR NEXT IDEA
+   -------------------------------------------------------------------------- */
+.section-studio {
+  padding: 5.5rem 0;
+  background-color: var(--bg-cream);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.studio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.studio-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.8rem 0;
+}
+
+.studio-tag-pill {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background-color: var(--bg-cream-alt);
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+}
+
+/* --------------------------------------------------------------------------
+   INTERACTIVE BANNER (Fixed Image / Oaks Style Parallax Statement)
+   -------------------------------------------------------------------------- */
+.statement-banner {
+  position: relative;
+  background-color: var(--bg-midnight);
+  color: var(--text-light);
+  padding: 7rem 1.5rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.statement-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+}
+
+.statement-content {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.statement-title {
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+}
+
+.statement-lead {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: var(--accent-gold-light);
+  margin-bottom: 2.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   OUR APPROACH: Observe. Capture. Create. Refine.
+   -------------------------------------------------------------------------- */
+.section-approach {
+  padding: 5.5rem 0;
+  background-color: var(--bg-cream);
+  text-align: center;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.approach-steps-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+  text-align: left;
+}
+
+.approach-box {
+  padding: 1.5rem;
+  border-top: 1px solid var(--text-dark);
+}
+
+.approach-idx {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--accent-gold);
+  margin-bottom: 0.8rem;
+}
+
+.approach-box-title {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.approach-box-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   WHY WEDS OF BOHEM? (Trimmed Grid)
+   -------------------------------------------------------------------------- */
+.section-why {
+  padding: 5.5rem 0;
+  background-color: #F4F1E1;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.why-card {
+  border-top: 2px solid var(--text-dark);
+  padding-top: 1.5rem;
+}
+
+.why-card-title {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.why-card-text {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* Subtle Scroll Entrance Animation Utility */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-fade-up.is-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   CONTACT & BOOKING (Ivory + Deep Midnight Accent)
+   -------------------------------------------------------------------------- */
+.section-contact-trimmed {
+  padding: 5.5rem 0;
+  background-color: var(--bg-cream);
+}
+
+.contact-layout-trimmed {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.contact-card-trimmed {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 2.5rem;
+}
+
+.form-group-minimal {
+  margin-bottom: 1.2rem;
+}
+
+.form-label-minimal {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.4rem;
+}
+
+.form-input-minimal,
+.form-select-minimal,
+.form-textarea-minimal {
+  width: 100%;
+  background-color: var(--bg-cream);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  outline: none;
+  transition: var(--transition);
+}
+
+.form-input-minimal:focus,
+.form-select-minimal:focus,
+.form-textarea-minimal:focus {
+  border-color: var(--text-dark);
+  background-color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER (Oaks Deep Midnight Signature)
+   -------------------------------------------------------------------------- */
+.footer-oaks {
+  background-color: var(--bg-midnight);
+  color: var(--text-light);
+  padding: 5rem 0 2.5rem;
+  border-top: 1px solid var(--border-dark);
+}
+
+.footer-top-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand-huge {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.footer-quote {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--accent-gold-light);
+  margin-bottom: 1rem;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-links-list a {
+  color: var(--text-light-muted);
+}
+
+.footer-links-list a:hover {
+  color: var(--text-light);
+  padding-left: 3px;
+}
+
+.footer-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.74rem;
+  color: var(--text-light-muted);
+  letter-spacing: 0.06em;
+}
+
+/* --------------------------------------------------------------------------
+   Lightbox Modal
+   -------------------------------------------------------------------------- */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: rgba(1, 15, 26, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-content {
+  max-width: 960px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.lightbox-img {
+  max-height: 75vh;
+  width: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-caption {
+  margin-top: 1.5rem;
+  color: var(--text-light);
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   Floating WhatsApp Button (Clean & Subtle)
+   -------------------------------------------------------------------------- */
+.floating-wa-pill {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 500;
+  background-color: #25D366;
+  color: #041407;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+  transition: var(--transition);
+}
+
+.floating-wa-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+  color: #000;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .manifesto-layout,
+  .studio-grid,
+  .contact-layout-trimmed {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .stories-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .story-card.col-6,
+  .story-card.col-8,
+  .story-card.col-4 {
+    grid-column: span 6;
+  }
+
+  .services-trimmed-grid,
+  .approach-steps-row,
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-top-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu,
+  .nav-btns .btn-pill-dark {
+    display: none;
+  }
+
+  .mobile-menu-trigger {
+    display: block;
+  }
+
+  .stories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-card.col-6,
+  .story-card.col-8,
+  .story-card.col-4 {
+    grid-column: span 1;
+  }
+
+  .services-trimmed-grid,
+  .approach-steps-row,
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top-row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom-row {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .manifesto-oval-img {
+    width: 60%;
+    height: 180px;
+    bottom: -1.5rem;
+    right: 0;
+  }
+
+  .floating-wa-pill span {
+    display: none;
+  }
+
+  .floating-wa-pill {
+    padding: 0.8rem;
+    border-radius: 50%;
+  }
+}

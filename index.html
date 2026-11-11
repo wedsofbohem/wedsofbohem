@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEDS OF BOHEM | Collection &amp; Wedding Studio | Kerala</title>
+  <meta name="description" content="Weds of Bohem is a creative wedding studio, professional editing suite, and dedicated space for creators in Thrikkodithanam, Kerala. Authentic, cinematic and timeless wedding stories.">
+  
+  <!-- Fonts inspired by Oaks Wedding (Space Grotesk + Playfair Display + Cormorant) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement">
+    <span>📍 Thrikkodithanam, Kerala &nbsp;•&nbsp; <strong>Now Booking 2026/2027 Celebrations</strong></span>
+    <a href="https://api.whatsapp.com/send/?phone=919292255734&text&type=phone_number&app_absent=0" target="_blank">
+      WhatsApp Studio Concierge →
+    </a>
+  </div>
+
+  <!-- Header / Navigation (Deep Midnight) -->
+  <header class="header-nav">
+    <div class="container nav-wrapper">
+      <a href="#" class="brand-monogram" aria-label="Weds of Bohem">
+        <img src="assets/images/logo.png" alt="Weds of Bohem" class="nav-logo-img">
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="#about">About</a></li>
+          <li class="nav-item"><a href="#collection">Collection</a></li>
+          <li class="nav-item"><a href="#services">What We Do</a></li>
+          <li class="nav-item"><a href="#studio">The Studio</a></li>
+          <li class="nav-item"><a href="#approach">Our Approach</a></li>
+          <li class="nav-item"><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-btns">
+        <a href="#contact" class="btn-pill btn-pill-on-dark">Get in Touch</a>
+        <a href="https://api.whatsapp.com/send/?phone=919292255734&text&type=phone_number&app_absent=0" target="_blank" class="btn-pill btn-whatsapp-minimal">
+          WhatsApp
+        </a>
+        <button type="button" class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Toggle menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="lightbox-modal" id="mobileDrawer">
+    <div style="background: #010F1A; border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 2.5rem; width: 90%; max-width: 360px; text-align: left; position: relative;">
+      <button type="button" id="mobileDrawerClose" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: #FFF; font-size: 1.5rem; cursor: pointer;">✕</button>
+      <div style="display: flex; align-items: center; gap: 0.9rem; margin-bottom: 2rem;">
+        <img src="assets/images/logo.png" alt="Weds of Bohem" style="height: 56px; width: auto; object-fit: contain;">
+        <div>
+          <h3 style="font-size: 1.15rem; color: #FFF; margin: 0; line-height: 1.1;">WEDS OF BOHEM</h3>
+          <p style="font-size: 0.65rem; color: var(--accent-gold); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 2px;">Thrikkodithanam, Kerala</p>
+        </div>
+      </div>
+      
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.08em; font-family: var(--font-display); margin-bottom: 2rem;">
+        <li><a href="#about" style="color: #FFF;">About</a></li>
+        <li><a href="#collection" style="color: #FFF;">Collection</a></li>
+        <li><a href="#services" style="color: #FFF;">What We Do</a></li>
+        <li><a href="#studio" style="color: #FFF;">The Studio</a></li>
+        <li><a href="#approach" style="color: #FFF;">Our Approach</a></li>
+        <li><a href="#contact" style="color: #FFF;">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn-pill btn-pill-gold" style="width: 100%; text-align: center; display: block;">Book Consultation</a>
+    </div>
+  </div>
+
+  <!-- Hero Section: WHERE OUR ART MEETS YOUR STORY (Oaks Wedding Style) -->
+  <section class="hero-midnight">
+    <div class="container">
+      <h1 class="hero-midnight-title">
+        Where Our Art <br>
+        <span class="italic">Meets Your Story.</span>
+      </h1>
+      <p class="hero-midnight-sub">
+        Weddings, Stories &amp; Everything Behind the Frame. <br>
+        Your moments. Our craft. One story, beautifully told.
+      </p>
+
+      <div class="hero-nav-pills">
+        <a href="#collection" class="hero-pill-tab active" data-filter="all">All Stories</a>
+        <a href="#collection" class="hero-pill-tab" data-filter="weddings">Weddings</a>
+        <a href="#collection" class="hero-pill-tab" data-filter="films">Films</a>
+        <a href="#collection" class="hero-pill-tab" data-filter="studio">Studio &amp; Editorial</a>
+        <a href="#contact" class="hero-pill-tab">Inquire Date</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: MORE THAN A WEDDING STUDIO -->
+  <section class="section-manifesto" id="about">
+    <div class="container">
+      <div class="manifesto-layout">
+        <div>
+          <span class="manifesto-tag">More Than a Wedding Studio</span>
+          <h2 class="manifesto-heading">A Wedding Is Not <br>Just An Event.</h2>
+          <div class="manifesto-lead">
+            “It is the nervous smile before the ceremony, the glance between two people, the laughter that fills the room, the hands that hold a little tighter and the moments nobody planned for.”
+          </div>
+          <div class="manifesto-text">
+            <p>
+              At Weds of Bohem, we believe those are the moments worth remembering.
+            </p>
+            <p>
+              We combine thoughtful storytelling, modern visual aesthetics and meticulous post-production to create wedding films and photographs that feel personal to you. Alongside wedding photography and filmmaking, our studio is built for creators — offering professional editing services and a dedicated space for photography, filmmaking and creative production.
+            </p>
+            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+              <a href="#collection" class="btn-pill btn-pill-light">Explore Our Work</a>
+              <a href="#contact" class="btn-pill btn-pill-gold">Get in Touch</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="manifesto-gallery-stack">
+          <img src="assets/images/hero_main.jpg" 
+               alt="Weds of Bohem Candid Emotion" 
+               class="manifesto-main-img">
+          <img src="assets/images/couple_2.jpg" 
+               alt="Bohem Editorial Couple" 
+               class="manifesto-oval-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: THE COLLECTION (Oaks Wedding Asymmetrical Editorial Masonry) -->
+  <section class="section-collection" id="collection">
+    <div class="container-wide">
+      <div class="collection-header">
+        <h2 class="collection-title">COLLECTION</h2>
+        <p class="collection-sub">Featured Wedding Stories &amp; Visual Legacies</p>
+      </div>
+
+      <div class="stories-grid">
+        <!-- Story 1: Col-6 Large -->
+        <div class="story-card col-6" data-category="weddings">
+          <div class="story-img-frame" style="height: 520px;">
+            <img src="assets/images/couple_1.jpg" 
+                 alt="Debosmitha & Sumeet" loading="lazy">
+          </div>
+          <div class="story-info">
+            <h3 class="story-names">Debosmitha &amp; Sumeet</h3>
+            <span class="story-meta">Kumarakom Waters • Wedding Film</span>
+          </div>
+        </div>
+
+        <!-- Story 2: Col-6 with Oval framing -->
+        <div class="story-card col-6 oval-frame" data-category="weddings">
+          <div class="story-img-frame" style="height: 520px;">
+            <img src="assets/images/couple_3.jpg" 
+                 alt="Namitha & Avinash" loading="lazy">
+          </div>
+          <div class="story-info">
+            <h3 class="story-names">Namitha &amp; Avinash</h3>
+            <span class="story-meta">Grand Hyatt Kochi • Photography</span>
+          </div>
+        </div>
+
+        <!-- Story 3: Col-4 Rectangular -->
+        <div class="story-card col-4" data-category="films weddings">
+          <div class="story-img-frame" style="height: 440px;">
+            <img src="assets/images/couple_4.jpg" 
+                 alt="Jhanvi & Danny" loading="lazy">
+          </div>
+          <div class="story-info">
+            <h3 class="story-names">Jhanvi &amp; Danny</h3>
+            <span class="story-meta">Thiruvalla • Highlight Film</span>
+          </div>
+        </div>
+
+        <!-- Story 4: Col-4 Rectangular -->
+        <div class="story-card col-4" data-category="studio">
+          <div class="story-img-frame" style="height: 440px;">
+            <img src="assets/images/editorial_1.jpg" 
+                 alt="Bohem Studio Campaign" loading="lazy">
+          </div>
+          <div class="story-info">
+            <h3 class="story-names">Linen &amp; Silk Campaign</h3>
+            <span class="story-meta">Bohem Studio • Thrikkodithanam</span>
+          </div>
+        </div>
+
+        <!-- Story 5: Col-4 Rectangular -->
+        <div class="story-card col-4" data-category="weddings">
+          <div class="story-img-frame" style="height: 440px;">
+            <img src="assets/images/couple_5.jpg" 
+                 alt="Devika & Anoop" loading="lazy">
+          </div>
+          <div class="story-info">
+            <h3 class="story-names">Devika &amp; Anoop</h3>
+            <span class="story-meta">Kottayam • Heirloom Details</span>
+          </div>
+        </div>
+
+        <!-- Story 6: Col-6 Rectangular -->
+        <div class="story-card col-6" data-category="weddings">
+          <div class="story-img-frame" style="height: 460px;">
+            <img src="assets/images/couple_6.jpg" 
+                 alt="Central Kerala Wedding" loading="lazy">
+          </div>
+          <div class="story-info">
+            <h3 class="story-names">Siddharth &amp; Anjali</h3>
+            <span class="story-meta">Heritage Church • Traditional Ceremony</span>
+          </div>
+        </div>
+
+        <!-- Story 7: Col-6 Rectangular -->
+        <div class="story-card col-6" data-category="studio films">
+          <div class="story-img-frame" style="height: 460px;">
+            <img src="assets/images/story_3.jpg" 
+                 alt="Creator Series in Studio" loading="lazy">
+          </div>
+          <div class="story-info">
+            <h3 class="story-names">Creator Series &amp; Pre-Wedding</h3>
+            <span class="story-meta">Bohem Studio Space • Central Kerala</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: WHAT WE DO (Trimmed 4 Columns) -->
+  <section class="section-services" id="services">
+    <div class="container">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto;">
+        <span style="font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-gold); display: block; margin-bottom: 0.5rem;">
+          Our Services
+        </span>
+        <h2 style="font-size: clamp(2rem, 3.5vw, 3rem); text-transform: uppercase; letter-spacing: 0.06em;">
+          WHAT WE DO
+        </h2>
+      </div>
+
+      <div class="services-trimmed-grid">
+        <!-- 1. Wedding Photography -->
+        <div class="service-item-trimmed">
+          <div>
+            <div class="service-num">01</div>
+            <h3 class="service-item-title">Wedding Photography</h3>
+            <p class="service-item-desc">
+              We document your wedding with a balance of candid moments, creative portraits and timeless details. Let the day unfold naturally while we stay ready for the moments that matter.
+            </p>
+          </div>
+          <div class="service-bullet-list">
+            Candid • Editorial • Traditional • Couple Portraits • Wedding Details
+          </div>
+        </div>
+
+        <!-- 2. Wedding Films -->
+        <div class="service-item-trimmed">
+          <div>
+            <div class="service-num">02</div>
+            <h3 class="service-item-title">Wedding Films</h3>
+            <p class="service-item-desc">
+              Your wedding deserves more than a collection of clips. We create cinematic films that bring back the atmosphere, emotions, voices and energy of your day.
+            </p>
+          </div>
+          <div class="service-bullet-list">
+            Wedding Films • Highlight Films • Teasers • Reels
+          </div>
+        </div>
+
+        <!-- 3. Professional Editing -->
+        <div class="service-item-trimmed">
+          <div>
+            <div class="service-num">03</div>
+            <h3 class="service-item-title">Professional Editing</h3>
+            <p class="service-item-desc">
+              Great footage becomes a great story in the edit. Our post-production team works with photographers and filmmakers to transform raw footage into polished visual stories.
+            </p>
+          </div>
+          <div class="service-bullet-list">
+            Photo Editing • Video Editing • Colour Grading • Cinematic Films • Reels
+          </div>
+        </div>
+
+        <!-- 4. Studio Space -->
+        <div class="service-item-trimmed">
+          <div>
+            <div class="service-num">04</div>
+            <h3 class="service-item-title">Studio Space</h3>
+            <p class="service-item-desc">
+              A creative space designed for photographers, filmmakers, brands and creators. Use our studio for portraits, fashion shoots, product photography, and content creation.
+            </p>
+          </div>
+          <div class="service-bullet-list">
+            Shoot • Create • Edit • Collaborate
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: THE STUDIO (A Space For Your Next Idea) -->
+  <section class="section-studio" id="studio">
+    <div class="container">
+      <div class="studio-grid">
+        <div>
+          <span style="font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-gold); display: block; margin-bottom: 0.8rem;">
+            Creative Production
+          </span>
+          <h2 style="font-size: clamp(2rem, 3.5vw, 3rem); text-transform: uppercase; line-height: 1.15; margin-bottom: 1.2rem;">
+            THE STUDIO <br>
+            <span style="font-family: var(--font-editorial); font-style: italic; text-transform: none; color: #5C5A55; font-size: 0.85em;">A space for your next idea.</span>
+          </h2>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+            Weds of Bohem is more than a place to shoot. It is a space where ideas take shape. 
+            Whether you're creating a campaign, shooting portraits, producing social content or working on a wedding concept, our studio gives you a controlled and creative environment to bring your vision to life.
+          </p>
+
+          <div style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dark); font-weight: 600; margin-bottom: 0.6rem;">
+            Available For:
+          </div>
+
+          <div class="studio-tags-row">
+            <span class="studio-tag-pill">Photography Sessions</span>
+            <span class="studio-tag-pill">Couple &amp; Pre-Wedding</span>
+            <span class="studio-tag-pill">Fashion &amp; Portraits</span>
+            <span class="studio-tag-pill">Brand Content</span>
+            <span class="studio-tag-pill">Product Shoots</span>
+            <span class="studio-tag-pill">Reels &amp; Social Video</span>
+            <span class="studio-tag-pill">Video Productions</span>
+            <span class="studio-tag-pill">Creative Collaborations</span>
+            <span class="studio-tag-pill">Editing &amp; Post-Production</span>
+          </div>
+
+          <a href="https://api.whatsapp.com/send/?phone=919292255734&text=Hi%20Weds%20of%20Bohem!%20I'd%20like%20to%20enquire%20about%20booking%20your%20studio%20space%20in%20Thrikkodithanam.&type=phone_number&app_absent=0" target="_blank" class="btn-pill btn-pill-dark btn-studio-enquire">
+            Enquire About Studio Booking →
+          </a>
+        </div>
+
+        <div>
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-light); box-shadow: var(--shadow-subtle);">
+            <img src="assets/images/story_1.jpg" 
+                 alt="Weds of Bohem Studio Space Thrikkodithanam">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mid-Break Statement Banner (Oaks Signature Parallax Vibe) -->
+  <section class="statement-banner">
+    <img src="assets/images/story_2.jpg" 
+         alt="Cinematic Wedding Story" class="statement-bg-img">
+    <div class="statement-content">
+      <h2 class="statement-title">
+        LET'S TELL YOUR STORY <br>
+        IN A WAY YOU'LL NEVER FORGET
+      </h2>
+      <p class="statement-lead">
+        “From the first frame to the final cut, every memory is preserved with love.”
+      </p>
+      <a href="#contact" class="btn-pill btn-pill-gold">
+        Book a Consultation
+      </a>
+    </div>
+  </section>
+
+  <!-- Section 5: OUR APPROACH (Observe • Capture • Create • Refine) -->
+  <section class="section-approach" id="approach">
+    <div class="container">
+      <span style="font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-gold); display: block; margin-bottom: 0.5rem;">
+        Our Approach
+      </span>
+      <h2 style="font-size: clamp(2rem, 3.5vw, 3rem); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem;">
+        REAL MOMENTS. REFINED VISUALS.
+      </h2>
+      <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 720px; margin: 0 auto; line-height: 1.8;">
+        We don't believe every wedding needs to look the same. Your story has its own rhythm, personality and energy. Our job is to find it, preserve it and turn it into something you'll want to watch and look at again and again. From the way we frame a photograph to the way a film cuts between moments, every detail is considered.
+      </p>
+
+      <div class="approach-steps-row">
+        <div class="approach-box">
+          <div class="approach-idx">01</div>
+          <h3 class="approach-box-title">Observe</h3>
+          <p class="approach-box-text">
+            Letting the day unfold naturally, noticing the quiet glances and emotional connections before they pass.
+          </p>
+        </div>
+
+        <div class="approach-box">
+          <div class="approach-idx">02</div>
+          <h3 class="approach-box-title">Capture</h3>
+          <p class="approach-box-text">
+            Unobtrusive, cinematic, and spontaneous. Being in the right place at the right moment without forcing the scene.
+          </p>
+        </div>
+
+        <div class="approach-box">
+          <div class="approach-idx">03</div>
+          <h3 class="approach-box-title">Create</h3>
+          <p class="approach-box-text">
+            Shaping rhythm, tone, and pacing into an authentic visual story that carries the true feeling of your day.
+          </p>
+        </div>
+
+        <div class="approach-box">
+          <div class="approach-idx">04</div>
+          <h3 class="approach-box-title">Refine</h3>
+          <p class="approach-box-text">
+            Meticulous post-production, custom color grading, and timeless delivery built to endure for generations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: WHY WEDS OF BOHEM? (Trimmed 4 Cards) -->
+  <section class="section-why">
+    <div class="container">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto;">
+        <span style="font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-gold); display: block; margin-bottom: 0.5rem;">
+          The Studio Difference
+        </span>
+        <h2 style="font-size: clamp(2rem, 3.5vw, 3rem); text-transform: uppercase; letter-spacing: 0.06em;">
+          WHY WEDS OF BOHEM?
+        </h2>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <h3 class="why-card-title">Story First</h3>
+          <p class="why-card-text">
+            We focus on the people and emotions behind the wedding — not just the events.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title">Contemporary Visuals</h3>
+          <p class="why-card-text">
+            Clean compositions, cinematic movement and an editorial eye give your memories a modern visual identity.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title">From Camera to Final Cut</h3>
+          <p class="why-card-text">
+            Photography, filmmaking and post-production under one creative roof means your story stays consistent from capture to delivery.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title">Built for Creators</h3>
+          <p class="why-card-text">
+            Our studio space extends beyond weddings, giving photographers, filmmakers, brands and creators a place to experiment and produce.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: YOUR STORY STARTS HERE (Contact & Booking) -->
+  <section class="section-contact-trimmed" id="contact">
+    <div class="container">
+      <div class="contact-layout-trimmed">
+        <!-- Info Column -->
+        <div>
+          <span style="font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-gold); display: block; margin-bottom: 0.8rem;">
+            Start A Conversation
+          </span>
+          <h2 style="font-size: clamp(2.2rem, 3.8vw, 3.4rem); text-transform: uppercase; line-height: 1.15; margin-bottom: 1.5rem;">
+            YOUR STORY <br>STARTS HERE.
+          </h2>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem;">
+            Planning a wedding? Need a creative studio? Looking for reliable editing and post-production? <br>
+            <strong>Let's create something worth remembering.</strong>
+          </p>
+
+          <div style="margin-bottom: 2rem; border-top: 1px solid var(--border-light); padding-top: 1.5rem;">
+            <div style="font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.3rem;">
+              Studio Location
+            </div>
+            <div style="font-size: 1.05rem; font-weight: 500;">
+              📍 Thrikkodithanam, Kerala
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+            <a href="https://api.whatsapp.com/send/?phone=919292255734&text&type=phone_number&app_absent=0" target="_blank" class="btn-pill btn-whatsapp-minimal">
+              WhatsApp Us
+            </a>
+            <a href="https://instagram.com/wedsofbohem" target="_blank" class="btn-pill btn-pill-light">
+              Follow Us on Instagram
+            </a>
+          </div>
+        </div>
+
+        <!-- Consultation Form -->
+        <div class="contact-card-trimmed">
+          <h3 style="font-size: 1.35rem; text-transform: uppercase; margin-bottom: 0.3rem;">Book a Consultation</h3>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            We respond promptly to all wedding and studio inquiries.
+          </p>
+
+          <form id="contactFormTrimmed">
+            <div class="form-group-minimal">
+              <label class="form-label-minimal">Your Name(s)</label>
+              <input type="text" name="name" class="form-input-minimal" placeholder="e.g. Anjali &amp; Rohan" required>
+            </div>
+
+            <div class="form-group-minimal">
+              <label class="form-label-minimal">Service Interested In</label>
+              <select name="service" class="form-select-minimal">
+                <option value="Wedding Photography & Cinema">Wedding Photography &amp; Cinema</option>
+                <option value="Wedding Photography">Wedding Photography</option>
+                <option value="Wedding Films">Wedding Films</option>
+                <option value="Studio Space Booking">Studio Space Booking (Thrikkodithanam)</option>
+                <option value="Professional Editing & Color Grading">Professional Editing &amp; Color Grading</option>
+              </select>
+            </div>
+
+            <div class="form-group-minimal">
+              <label class="form-label-minimal">Celebration / Shoot Date</label>
+              <input type="date" name="date" class="form-input-minimal">
+            </div>
+
+            <div class="form-group-minimal">
+              <label class="form-label-minimal">Your Vision / Details</label>
+              <textarea name="note" class="form-textarea-minimal" rows="3" placeholder="Tell us about your celebration or creative project..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-pill btn-pill-dark" style="width: 100%; border-radius: 8px;">
+              Send Inquiry Via WhatsApp →
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Oaks Style Footer (Deep Midnight) -->
+  <footer class="footer-oaks">
+    <div class="container">
+      <div class="footer-top-row">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.2rem;">
+            <img src="assets/images/logo.png" alt="Weds of Bohem" style="height: 64px; width: auto; object-fit: contain;">
+            <div>
+              <div class="footer-brand-huge" style="margin-bottom: 0; line-height: 1.1;">WEDS OF BOHEM</div>
+              <span style="font-size: 0.62rem; color: var(--accent-gold); letter-spacing: 0.22em; text-transform: uppercase; display: block; margin-top: 3px;">
+                Planned • Curated • Celebrated
+              </span>
+            </div>
+          </div>
+          <div class="footer-quote">
+            Capture the moment. Create the story. Keep it forever.
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-light-muted); line-height: 1.7; max-width: 320px;">
+            Wedding Studio • Editing • Creative Space <br>
+            Thrikkodithanam, Kerala
+          </p>
+        </div>
+
+        <div>
+          <div style="font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 1.2rem;">
+            Navigation
+          </div>
+          <ul class="footer-links-list">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#services">What We Do</a></li>
+            <li><a href="#studio">The Studio</a></li>
+            <li><a href="#approach">Our Approach</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div style="font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 1.2rem;">
+            Services
+          </div>
+          <ul class="footer-links-list">
+            <li><a href="#services">Wedding Photography</a></li>
+            <li><a href="#services">Wedding Films</a></li>
+            <li><a href="#services">Professional Editing</a></li>
+            <li><a href="#studio">Studio Space</a></li>
+            <li><a href="#contact">Consultation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div style="font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 1.2rem;">
+            Connect
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-light-muted); line-height: 1.8;">
+            <div>WhatsApp: +91 92922 55734</div>
+            <div>Email: hello@wedsofbohem.com</div>
+            <div>Instagram: @wedsofbohem</div>
+            <div style="margin-top: 0.8rem;">
+              <a href="https://api.whatsapp.com/send/?phone=919292255734&text&type=phone_number&app_absent=0" target="_blank" class="btn-pill btn-whatsapp-minimal" style="padding: 0.4rem 1rem; font-size: 0.7rem;">
+                WhatsApp Studio
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div>
+          © 2026 Weds of Bohem. All rights reserved.
+        </div>
+        <div>
+          Thrikkodithanam, Kerala, India
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close-btn" id="lightboxClose">✕</button>
+      <img id="lightboxImg" src="" alt="Enlarged Collection Story" class="lightbox-img">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- Subtle Floating WhatsApp Pill -->
+  <a href="https://api.whatsapp.com/send/?phone=919292255734&text&type=phone_number&app_absent=0" 
+     target="_blank" 
+     class="floating-wa-pill" 
+     aria-label="WhatsApp Weds of Bohem">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.288.043.088.072.19.014.305-.058.115-.087.187-.173.289l-.26.306c-.087.087-.178.181-.077.354.101.174.449.741.964 1.2 0.662.589 1.221.77 1.394.857.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086.159.058 1.011.477 1.184.564.173.087.289.13.332.202.043.073.043.419-.101.824z"/></svg>
+    <span>WhatsApp Us</span>
+  </a>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
