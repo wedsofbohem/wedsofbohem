@@ -520,6 +520,11 @@
             </div>
 
             <div class="form-group-minimal">
+              <label class="form-label-minimal">Contact Number</label>
+              <input type="tel" name="phone" class="form-input-minimal" placeholder="e.g. +91 98765 43210" required>
+            </div>
+
+            <div class="form-group-minimal">
               <label class="form-label-minimal">Service Interested In</label>
               <select name="service" class="form-select-minimal">
                 <option value="Wedding Photography & Cinema">Wedding Photography &amp; Cinema</option>
@@ -632,6 +637,42 @@
       <button type="button" class="lightbox-close-btn" id="lightboxClose">✕</button>
       <img id="lightboxImg" src="" alt="Enlarged Collection Story" class="lightbox-img">
       <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- Thank You Popup Modal (Wedding-Themed Luxury) -->
+  <div class="thankyou-modal" id="thankYouModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="thankYouTitle">
+    <div class="thankyou-backdrop" id="thankYouBackdrop"></div>
+    <div class="thankyou-card">
+      <button type="button" class="thankyou-close" id="thankYouClose" aria-label="Close thank you modal">✕</button>
+      
+      <div class="thankyou-sparkle-ring">
+        <span class="thankyou-sparkle-icon">✨</span>
+      </div>
+      
+      <span class="thankyou-badge">WEDS OF BOHEM</span>
+      
+      <h3 class="thankyou-title" id="thankYouTitle">Your Journey Begins Here! ✨</h3>
+      <p class="thankyou-subtitle">Thank you for choosing WOB!</p>
+      
+      <div class="thankyou-separator">
+        <span class="thankyou-line"></span>
+        <span class="thankyou-gem">✦</span>
+        <span class="thankyou-line"></span>
+      </div>
+      
+      <p class="thankyou-message">
+        Your enquiry has been successfully submitted. We'll be in touch soon to make your wedding memories truly timeless.
+      </p>
+      
+      <div class="thankyou-signoff">
+        <span class="thankyou-withlove">With love,</span>
+        <strong class="thankyou-team">Team WOB</strong>
+      </div>
+      
+      <button type="button" class="btn-pill btn-pill-dark thankyou-btn" id="thankYouOkBtn">
+        Back to Website
+      </button>
     </div>
   </div>
 

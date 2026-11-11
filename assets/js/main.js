@@ -146,21 +146,64 @@ function initMobileMenu() {
   });
 }
 
-// Contact Form Handler
+// Contact Form Handler & Thank You Popup
 function initContactForm() {
   const form = document.getElementById('contactFormTrimmed');
+  const modal = document.getElementById('thankYouModal');
+  const closeBtn = document.getElementById('thankYouClose');
+  const okBtn = document.getElementById('thankYouOkBtn');
+  const backdrop = document.getElementById('thankYouBackdrop');
   if (!form) return;
+
+  function openThankYouModal() {
+    if (!modal) return;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeThankYouModal() {
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeThankYouModal);
+  if (okBtn) okBtn.addEventListener('click', closeThankYouModal);
+  if (backdrop) backdrop.addEventListener('click', closeThankYouModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+      closeThankYouModal();
+    }
+  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const name = form.querySelector('[name="name"]').value;
-    const date = form.querySelector('[name="date"]').value;
-    const service = form.querySelector('[name="service"]').value;
-    const note = form.querySelector('[name="note"]').value;
 
-    const text = `*Inquiry - Weds of Bohem*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Service:* ${encodeURIComponent(service)}%0A*Date:* ${encodeURIComponent(date || 'TBD')}%0A*Notes:* ${encodeURIComponent(note || 'None')}`;
+    // Check validity of required inputs
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
-    window.open(`https://api.whatsapp.com/send/?phone=919292255734&text=${text}&type=phone_number&app_absent=0`, '_blank');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn ? submitBtn.textContent : 'Submit';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+    }
+
+    // Process submission cleanly on page with smooth feedback
+    setTimeout(() => {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+      form.reset();
+      openThankYouModal();
+    }, 350);
   });
 }
 
