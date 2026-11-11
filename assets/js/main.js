@@ -146,18 +146,51 @@ function initMobileMenu() {
   });
 }
 
-// Contact Form Handler & Thank You Popup
+// Contact Form Handler & WhatsApp Click-to-Chat Integration
 function initContactForm() {
   const form = document.getElementById('contactFormTrimmed');
-  const modal = document.getElementById('thankYouModal');
-  const closeBtn = document.getElementById('thankYouClose');
-  const okBtn = document.getElementById('thankYouOkBtn');
-  const backdrop = document.getElementById('thankYouBackdrop');
+  const errorToast = document.getElementById('formErrorToast');
+  const errorText = document.getElementById('formErrorText');
+  const errorClose = document.getElementById('formErrorClose');
   if (!form) return;
 
+  const nameInput = form.querySelector('[name="name"]');
   const phoneInput = form.querySelector('[name="phone"]');
+  const emailInput = form.querySelector('[name="email"]');
+  const dateInput = form.querySelector('[name="date"]');
+  const messageInput = form.querySelector('[name="message"]');
 
-  // Enforce strictly 10-digit numbers only, blocking letters and symbols
+  let toastTimeout = null;
+
+  function showError(msg, targetInput) {
+    if (errorText) errorText.textContent = msg;
+    if (errorToast) {
+      errorToast.classList.add('active');
+      errorToast.setAttribute('aria-hidden', 'false');
+    }
+    if (targetInput) {
+      targetInput.classList.add('has-error');
+      targetInput.focus();
+    }
+    if (toastTimeout) clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(hideError, 4000);
+  }
+
+  function hideError() {
+    if (errorToast) {
+      errorToast.classList.remove('active');
+      errorToast.setAttribute('aria-hidden', 'true');
+    }
+    if (nameInput) nameInput.classList.remove('has-error');
+    if (phoneInput) phoneInput.classList.remove('has-error');
+    if (emailInput) emailInput.classList.remove('has-error');
+  }
+
+  if (errorClose) {
+    errorClose.addEventListener('click', hideError);
+  }
+
+  // Enforce strictly 10 digits on mobile number, block letters and symbols
   if (phoneInput) {
     phoneInput.addEventListener('keydown', (e) => {
       const allowedNav = [
@@ -173,74 +206,99 @@ function initContactForm() {
     });
 
     phoneInput.addEventListener('input', () => {
+      phoneInput.classList.remove('has-error');
       const sanitized = phoneInput.value.replace(/\D/g, '').slice(0, 10);
       if (phoneInput.value !== sanitized) {
         phoneInput.value = sanitized;
       }
-      if (phoneInput.value.length === 10) {
-        phoneInput.setCustomValidity('');
-      }
     });
   }
 
-  function openThankYouModal() {
-    if (!modal) return;
-    modal.classList.add('active');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+  if (nameInput) {
+    nameInput.addEventListener('input', () => {
+      nameInput.classList.remove('has-error');
+    });
   }
 
-  function closeThankYouModal() {
-    if (!modal) return;
-    modal.classList.remove('active');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+  if (emailInput) {
+    emailInput.addEventListener('input', () => {
+      emailInput.classList.remove('has-error');
+    });
   }
-
-  if (closeBtn) closeBtn.addEventListener('click', closeThankYouModal);
-  if (okBtn) okBtn.addEventListener('click', closeThankYouModal);
-  if (backdrop) backdrop.addEventListener('click', closeThankYouModal);
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
-      closeThankYouModal();
-    }
-  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Check validity of contact number (strictly 10 digits)
-    if (phoneInput && phoneInput.value.trim().length !== 10) {
-      phoneInput.setCustomValidity('Please enter a valid 10-digit mobile number.');
-      phoneInput.reportValidity();
-      return;
-    } else if (phoneInput) {
-      phoneInput.setCustomValidity('');
-    }
+    const name = nameInput ? nameInput.value.trim() : '';
+    const phone = phoneInput ? phoneInput.value.trim() : '';
+    const email = emailInput ? emailInput.value.trim() : '';
+    const date = dateInput ? dateInput.value.trim() : '';
+    const userMsg = messageInput ? messageInput.value.trim() : '';
 
-    // Check validity of required inputs
-    if (!form.checkValidity()) {
-      form.reportValidity();
+    // 1. Validate Full Name (Required)
+    if (!name || name.length < 2) {
+      showError('Please enter your Full Name.', nameInput);
       return;
     }
 
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn ? submitBtn.textContent : 'Submit';
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
+    // 2. Validate Mobile Number (Required - exactly 10 digits, valid Indian mobile prefix 6-9)
+    if (!phone) {
+      showError('Please enter your 10-digit Mobile Number.', phoneInput);
+      return;
     }
 
-    // Process submission cleanly on page with smooth feedback
-    setTimeout(() => {
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
+    const indianMobileRegex = /^[6-9]\d{9}$/;
+    if (!indianMobileRegex.test(phone)) {
+      showError('Please enter a valid 10-digit Indian mobile number (e.g. 9876543210).', phoneInput);
+      return;
+    }
+
+    // 3. Validate Email (Optional)
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showError('Please enter a valid email address or leave it blank.', emailInput);
+      return;
+    }
+
+    // All validation passed: hide any error
+    hideError();
+
+    // Format Wedding Date nicely if present
+    let formattedDate = 'Not specified';
+    if (date) {
+      try {
+        const parts = date.split('-');
+        if (parts.length === 3) {
+          const d = new Date(parts[0], parts[1] - 1, parts[2]);
+          formattedDate = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+        } else {
+          formattedDate = date;
+        }
+      } catch (err) {
+        formattedDate = date;
       }
-      form.reset();
-      openThankYouModal();
-    }, 350);
+    }
+
+    const emailValue = email || 'Not specified';
+    const messageValue = userMsg || 'None';
+
+    // Format message exactly as required:
+    const whatsappMessage = `Hello Team WOB!
+I would like to enquire about your wedding photography and videography services.
+
+Name: ${name}
+Mobile: ${phone}
+Email: ${emailValue}
+Wedding Date: ${formattedDate}
+Message: ${messageValue}
+
+Looking forward to hearing from you.
+Thank you!`;
+
+    // Official WhatsApp Click-to-Chat URL with configured WOB business number
+    const whatsappUrl = `https://wa.me/919292255734?text=${encodeURIComponent(whatsappMessage)}`;
+
+    // Open WhatsApp in a new tab or trigger WhatsApp mobile app
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   });
 }
 

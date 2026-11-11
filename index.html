@@ -513,36 +513,30 @@
             We respond promptly to all wedding and studio inquiries.
           </p>
 
-          <form id="contactFormTrimmed">
+          <form id="contactFormTrimmed" novalidate>
             <div class="form-group-minimal">
-              <label class="form-label-minimal">Your Name(s)</label>
-              <input type="text" name="name" class="form-input-minimal" placeholder="e.g. Anjali &amp; Rohan" required>
+              <label class="form-label-minimal" for="fullName">Full Name <span style="color: var(--accent-gold);">*</span></label>
+              <input type="text" name="name" id="fullName" class="form-input-minimal" placeholder="e.g. Anjali Nair" required autocomplete="name">
             </div>
 
             <div class="form-group-minimal">
-              <label class="form-label-minimal">Contact Number</label>
-              <input type="tel" name="phone" id="contactPhone" class="form-input-minimal" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" inputmode="numeric" title="Please enter a valid 10-digit mobile number" required>
+              <label class="form-label-minimal" for="contactPhone">Mobile Number <span style="color: var(--accent-gold);">*</span></label>
+              <input type="tel" name="phone" id="contactPhone" class="form-input-minimal" placeholder="10-digit mobile number (e.g. 9876543210)" maxlength="10" inputmode="numeric" required autocomplete="tel">
             </div>
 
             <div class="form-group-minimal">
-              <label class="form-label-minimal">Service Interested In</label>
-              <select name="service" class="form-select-minimal">
-                <option value="Wedding Photography & Cinema">Wedding Photography &amp; Cinema</option>
-                <option value="Wedding Photography">Wedding Photography</option>
-                <option value="Wedding Films">Wedding Films</option>
-                <option value="Studio Space Booking">Studio Space Booking (Thrikkodithanam)</option>
-                <option value="Professional Editing & Color Grading">Professional Editing &amp; Color Grading</option>
-              </select>
+              <label class="form-label-minimal" for="contactEmail">Email Address (Optional)</label>
+              <input type="email" name="email" id="contactEmail" class="form-input-minimal" placeholder="e.g. anjali@example.com" autocomplete="email">
             </div>
 
             <div class="form-group-minimal">
-              <label class="form-label-minimal">Celebration / Shoot Date</label>
-              <input type="date" name="date" class="form-input-minimal">
+              <label class="form-label-minimal" for="weddingDate">Wedding Date (Optional)</label>
+              <input type="date" name="date" id="weddingDate" class="form-input-minimal">
             </div>
 
             <div class="form-group-minimal">
-              <label class="form-label-minimal">Your Vision / Details</label>
-              <textarea name="note" class="form-textarea-minimal" rows="3" placeholder="Tell us about your celebration or creative project..."></textarea>
+              <label class="form-label-minimal" for="contactMessage">Message (Optional)</label>
+              <textarea name="message" id="contactMessage" class="form-textarea-minimal" rows="3" placeholder="Tell us about your celebration, venue, or requirements..."></textarea>
             </div>
 
             <button type="submit" class="btn-pill btn-pill-dark" style="width: 100%; border-radius: 8px;">
@@ -640,39 +634,12 @@
     </div>
   </div>
 
-  <!-- Thank You Popup Modal (Wedding-Themed Luxury) -->
-  <div class="thankyou-modal" id="thankYouModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="thankYouTitle">
-    <div class="thankyou-backdrop" id="thankYouBackdrop"></div>
-    <div class="thankyou-card">
-      <button type="button" class="thankyou-close" id="thankYouClose" aria-label="Close thank you modal">✕</button>
-      
-      <div class="thankyou-logo-wrapper">
-        <img src="assets/images/logo_gray.png" alt="Weds of Bohem" class="thankyou-logo-gray">
-      </div>
-      
-      <span class="thankyou-badge">WEDS OF BOHEM</span>
-      
-      <h3 class="thankyou-title" id="thankYouTitle">Your Journey Begins Here! ✨</h3>
-      <p class="thankyou-subtitle">Thank you for choosing WOB!</p>
-      
-      <div class="thankyou-separator">
-        <span class="thankyou-line"></span>
-        <span class="thankyou-gem">✦</span>
-        <span class="thankyou-line"></span>
-      </div>
-      
-      <p class="thankyou-message">
-        Your enquiry has been successfully submitted. We'll be in touch soon to make your wedding memories truly timeless.
-      </p>
-      
-      <div class="thankyou-signoff">
-        <span class="thankyou-withlove">With love,</span>
-        <strong class="thankyou-team">Team WOB</strong>
-      </div>
-      
-      <button type="button" class="btn-pill btn-pill-dark thankyou-btn" id="thankYouOkBtn">
-        Back to Website
-      </button>
+  <!-- Form Error Toast / Popup Notification -->
+  <div class="form-error-toast" id="formErrorToast" role="alert" aria-live="assertive" aria-hidden="true">
+    <div class="form-error-content">
+      <span class="form-error-icon">⚠️</span>
+      <span class="form-error-text" id="formErrorText">Please enter a valid 10-digit Indian mobile number.</span>
+      <button type="button" class="form-error-close" id="formErrorClose" aria-label="Dismiss error">✕</button>
     </div>
   </div>
 
