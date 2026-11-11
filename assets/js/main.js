@@ -155,6 +155,34 @@ function initContactForm() {
   const backdrop = document.getElementById('thankYouBackdrop');
   if (!form) return;
 
+  const phoneInput = form.querySelector('[name="phone"]');
+
+  // Enforce strictly 10-digit numbers only, blocking letters and symbols
+  if (phoneInput) {
+    phoneInput.addEventListener('keydown', (e) => {
+      const allowedNav = [
+        'Backspace', 'Delete', 'Tab', 'Escape', 'Enter',
+        'ArrowLeft', 'ArrowRight', 'Home', 'End'
+      ];
+      if (allowedNav.includes(e.key) || (e.ctrlKey || e.metaKey)) {
+        return;
+      }
+      if (!/^[0-9]$/.test(e.key)) {
+        e.preventDefault();
+      }
+    });
+
+    phoneInput.addEventListener('input', () => {
+      const sanitized = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+      if (phoneInput.value !== sanitized) {
+        phoneInput.value = sanitized;
+      }
+      if (phoneInput.value.length === 10) {
+        phoneInput.setCustomValidity('');
+      }
+    });
+  }
+
   function openThankYouModal() {
     if (!modal) return;
     modal.classList.add('active');
@@ -181,6 +209,15 @@ function initContactForm() {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    // Check validity of contact number (strictly 10 digits)
+    if (phoneInput && phoneInput.value.trim().length !== 10) {
+      phoneInput.setCustomValidity('Please enter a valid 10-digit mobile number.');
+      phoneInput.reportValidity();
+      return;
+    } else if (phoneInput) {
+      phoneInput.setCustomValidity('');
+    }
 
     // Check validity of required inputs
     if (!form.checkValidity()) {

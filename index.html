@@ -521,7 +521,7 @@
 
             <div class="form-group-minimal">
               <label class="form-label-minimal">Contact Number</label>
-              <input type="tel" name="phone" class="form-input-minimal" placeholder="e.g. +91 98765 43210" required>
+              <input type="tel" name="phone" id="contactPhone" class="form-input-minimal" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" inputmode="numeric" title="Please enter a valid 10-digit mobile number" required>
             </div>
 
             <div class="form-group-minimal">
@@ -646,8 +646,8 @@
     <div class="thankyou-card">
       <button type="button" class="thankyou-close" id="thankYouClose" aria-label="Close thank you modal">✕</button>
       
-      <div class="thankyou-sparkle-ring">
-        <span class="thankyou-sparkle-icon">✨</span>
+      <div class="thankyou-logo-wrapper">
+        <img src="assets/images/logo_gray.png" alt="Weds of Bohem" class="thankyou-logo-gray">
       </div>
       
       <span class="thankyou-badge">WEDS OF BOHEM</span>
