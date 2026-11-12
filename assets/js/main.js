@@ -146,16 +146,47 @@ function initMobileMenu() {
   });
 }
 
-// Contact Form Handler & Thank You Popup
+// Contact Form Handler & WhatsApp Submission
 function initContactForm() {
   const form = document.getElementById('contactFormTrimmed');
-  const modal = document.getElementById('thankYouModal');
-  const closeBtn = document.getElementById('thankYouClose');
-  const okBtn = document.getElementById('thankYouOkBtn');
-  const backdrop = document.getElementById('thankYouBackdrop');
   if (!form) return;
 
-  const phoneInput = form.querySelector('[name="phone"]');
+  const nameInput = document.getElementById('fullName') || form.querySelector('[name="name"]');
+  const phoneInput = document.getElementById('contactPhone') || form.querySelector('[name="phone"]');
+  const emailInput = document.getElementById('contactEmail') || form.querySelector('[name="email"]');
+  const dateInput = document.getElementById('weddingDate') || form.querySelector('[name="date"]');
+  const messageInput = document.getElementById('contactMessage') || form.querySelector('[name="message"]');
+
+  const errorModal = document.getElementById('invalidNumberModal');
+  const errorClose = document.getElementById('invalidNumberClose');
+  const errorOk = document.getElementById('invalidNumberOkBtn');
+  const errorBackdrop = document.getElementById('invalidNumberBackdrop');
+
+  function openInvalidNumberModal() {
+    if (!errorModal) return;
+    errorModal.classList.add('active');
+    errorModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (errorOk) errorOk.focus();
+  }
+
+  function closeInvalidNumberModal() {
+    if (!errorModal) return;
+    errorModal.classList.remove('active');
+    errorModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (phoneInput) phoneInput.focus();
+  }
+
+  if (errorClose) errorClose.addEventListener('click', closeInvalidNumberModal);
+  if (errorOk) errorOk.addEventListener('click', closeInvalidNumberModal);
+  if (errorBackdrop) errorBackdrop.addEventListener('click', closeInvalidNumberModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && errorModal && errorModal.classList.contains('active')) {
+      closeInvalidNumberModal();
+    }
+  });
 
   // Enforce strictly 10-digit numbers only, blocking letters and symbols
   if (phoneInput) {
@@ -177,70 +208,86 @@ function initContactForm() {
       if (phoneInput.value !== sanitized) {
         phoneInput.value = sanitized;
       }
-      if (phoneInput.value.length === 10) {
-        phoneInput.setCustomValidity('');
-      }
     });
   }
-
-  function openThankYouModal() {
-    if (!modal) return;
-    modal.classList.add('active');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeThankYouModal() {
-    if (!modal) return;
-    modal.classList.remove('active');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  if (closeBtn) closeBtn.addEventListener('click', closeThankYouModal);
-  if (okBtn) okBtn.addEventListener('click', closeThankYouModal);
-  if (backdrop) backdrop.addEventListener('click', closeThankYouModal);
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
-      closeThankYouModal();
-    }
-  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Check validity of contact number (strictly 10 digits)
-    if (phoneInput && phoneInput.value.trim().length !== 10) {
-      phoneInput.setCustomValidity('Please enter a valid 10-digit mobile number.');
-      phoneInput.reportValidity();
-      return;
-    } else if (phoneInput) {
-      phoneInput.setCustomValidity('');
-    }
+    const fullName = nameInput ? nameInput.value.trim() : '';
+    const rawPhone = phoneInput ? phoneInput.value.trim() : '';
+    const phoneDigits = rawPhone.replace(/\D/g, '');
 
-    // Check validity of required inputs
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn ? submitBtn.textContent : 'Submit';
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
-    }
-
-    // Process submission cleanly on page with smooth feedback
-    setTimeout(() => {
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
+    // Validate Required Fields
+    if (!fullName) {
+      if (nameInput) {
+        nameInput.focus();
+        nameInput.reportValidity();
       }
+      return;
+    }
+
+    // Validate Mobile Number: must contain exactly 10 digits
+    if (phoneDigits.length !== 10) {
+      openInvalidNumberModal();
+      return;
+    }
+
+    const emailVal = emailInput ? emailInput.value.trim() : '';
+    const emailDisplay = emailVal || 'Not specified';
+
+    let dateDisplay = 'Not specified';
+    if (dateInput && dateInput.value) {
+      const dateVal = dateInput.value;
+      const parts = dateVal.split('-');
+      if (parts.length === 3) {
+        const dObj = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+        if (!isNaN(dObj.getTime())) {
+          dateDisplay = dObj.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+        } else {
+          dateDisplay = dateVal;
+        }
+      } else {
+        dateDisplay = dateVal;
+      }
+    }
+
+    const customerMsg = messageInput ? messageInput.value.trim() : '';
+    const messageDisplay = customerMsg || 'Not specified';
+
+    // WhatsApp Message Format per requirement:
+    const whatsappMessage = 
+`Hello Team WOB!
+
+I would like to enquire about your wedding photography and videography services.
+
+Name: ${fullName}
+Mobile Number: ${phoneDigits}
+Email: ${emailDisplay}
+Wedding Date: ${dateDisplay}
+Message: ${messageDisplay}
+
+Looking forward to hearing from you.
+
+Thank you!`;
+
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=919292255734&text=${encodeURIComponent(whatsappMessage)}&type=phone_number&app_absent=0`;
+
+    // Detect mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      window.location.href = whatsappUrl;
+    } else {
+      const newTab = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
+        window.location.href = whatsappUrl;
+      }
+    }
+
+    setTimeout(() => {
       form.reset();
-      openThankYouModal();
-    }, 350);
+    }, 600);
   });
 }
 

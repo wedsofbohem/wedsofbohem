@@ -513,39 +513,33 @@
             We respond promptly to all wedding and studio inquiries.
           </p>
 
-          <form id="contactFormTrimmed">
+          <form id="contactFormTrimmed" novalidate>
             <div class="form-group-minimal">
-              <label class="form-label-minimal">Your Name(s)</label>
-              <input type="text" name="name" class="form-input-minimal" placeholder="e.g. Anjali &amp; Rohan" required>
+              <label class="form-label-minimal" for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="name" class="form-input-minimal" placeholder="e.g. Anjali &amp; Rohan" autocomplete="name" required>
             </div>
 
             <div class="form-group-minimal">
-              <label class="form-label-minimal">Contact Number</label>
-              <input type="tel" name="phone" id="contactPhone" class="form-input-minimal" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" inputmode="numeric" title="Please enter a valid 10-digit mobile number" required>
+              <label class="form-label-minimal" for="contactPhone">Mobile Number *</label>
+              <input type="tel" id="contactPhone" name="phone" class="form-input-minimal" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric" autocomplete="tel" required>
             </div>
 
             <div class="form-group-minimal">
-              <label class="form-label-minimal">Service Interested In</label>
-              <select name="service" class="form-select-minimal">
-                <option value="Wedding Photography & Cinema">Wedding Photography &amp; Cinema</option>
-                <option value="Wedding Photography">Wedding Photography</option>
-                <option value="Wedding Films">Wedding Films</option>
-                <option value="Studio Space Booking">Studio Space Booking (Thrikkodithanam)</option>
-                <option value="Professional Editing & Color Grading">Professional Editing &amp; Color Grading</option>
-              </select>
+              <label class="form-label-minimal" for="contactEmail">Email Address (Optional)</label>
+              <input type="email" id="contactEmail" name="email" class="form-input-minimal" placeholder="e.g. anjali@example.com" autocomplete="email">
             </div>
 
             <div class="form-group-minimal">
-              <label class="form-label-minimal">Celebration / Shoot Date</label>
-              <input type="date" name="date" class="form-input-minimal">
+              <label class="form-label-minimal" for="weddingDate">Wedding Date (Optional)</label>
+              <input type="date" id="weddingDate" name="date" class="form-input-minimal">
             </div>
 
             <div class="form-group-minimal">
-              <label class="form-label-minimal">Your Vision / Details</label>
-              <textarea name="note" class="form-textarea-minimal" rows="3" placeholder="Tell us about your celebration or creative project..."></textarea>
+              <label class="form-label-minimal" for="contactMessage">Message (Optional)</label>
+              <textarea id="contactMessage" name="message" class="form-textarea-minimal" rows="3" placeholder="Tell us about your celebration or creative project..."></textarea>
             </div>
 
-            <button type="submit" class="btn-pill btn-pill-dark" style="width: 100%; border-radius: 8px;">
+            <button type="submit" id="contactSubmitBtn" class="btn-pill btn-pill-dark" style="width: 100%; border-radius: 8px;">
               Submit
             </button>
           </form>
@@ -640,35 +634,28 @@
     </div>
   </div>
 
-  <!-- Thank You Popup Modal (Wedding-Themed Luxury) -->
-  <div class="thankyou-modal" id="thankYouModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="thankYouTitle">
-    <div class="thankyou-backdrop" id="thankYouBackdrop"></div>
-    <div class="thankyou-card">
-      <button type="button" class="thankyou-close" id="thankYouClose" aria-label="Close thank you modal">✕</button>
+  <!-- Invalid Mobile Number Modal -->
+  <div class="error-modal" id="invalidNumberModal" aria-hidden="true" role="alertdialog" aria-modal="true" aria-labelledby="invalidModalTitle" aria-describedby="invalidModalDesc">
+    <div class="error-backdrop" id="invalidNumberBackdrop"></div>
+    <div class="error-card">
+      <button type="button" class="error-close" id="invalidNumberClose" aria-label="Close error modal">✕</button>
       
-      <div class="thankyou-logo-wrapper">
-        <img src="assets/images/logo_gray.png" alt="Weds of Bohem" class="thankyou-logo-gray">
+      <div class="error-icon-wrapper">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
       </div>
+
+      <h3 class="error-title" id="invalidModalTitle">Invalid Mobile Number!</h3>
       
-      <h3 class="thankyou-title" id="thankYouTitle">Thank you for choosing WOB!</h3>
-      
-      <div class="thankyou-separator">
-        <span class="thankyou-line"></span>
-        <span class="thankyou-gem">✦</span>
-        <span class="thankyou-line"></span>
-      </div>
-      
-      <p class="thankyou-message">
-        Your enquiry has been successfully submitted. We'll be in touch soon to make your wedding memories truly timeless.
+      <p class="error-message" id="invalidModalDesc">
+        Please enter a valid 10-digit mobile number.
       </p>
-      
-      <div class="thankyou-signoff">
-        <span class="thankyou-withlove">With love,</span>
-        <strong class="thankyou-team">Team WOB</strong>
-      </div>
-      
-      <button type="button" class="btn-pill btn-pill-dark thankyou-btn" id="thankYouOkBtn">
-        Close
+
+      <button type="button" class="btn-pill btn-pill-dark error-btn" id="invalidNumberOkBtn">
+        OK
       </button>
     </div>
   </div>
@@ -682,6 +669,6 @@
     <span>WhatsApp Us</span>
   </a>
 
-  <script src="assets/js/main.js?v=3.0"></script>
+  <script src="assets/js/main.js?v=4.0"></script>
 </body>
 </html>
