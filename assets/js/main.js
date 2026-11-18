@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initCollectionFilter();
   initLightbox();
+  initTestimonialSlider();
   initMobileMenu();
   initContactForm();
   initScrollAnimations();
@@ -69,6 +70,33 @@ function initCinematicLoader() {
   }
 
   requestAnimationFrame(updateCounter);
+}
+
+// Testimonials Slider (Smooth Pause & Touch Interaction)
+function initTestimonialSlider() {
+  const container = document.getElementById('testimonialSlider');
+  const track = document.getElementById('testimonialTrack');
+  if (!container || !track) return;
+
+  // Pause on hover
+  container.addEventListener('mouseenter', () => {
+    container.classList.add('is-paused');
+  });
+
+  container.addEventListener('mouseleave', () => {
+    container.classList.remove('is-paused');
+  });
+
+  // Pause on touch for mobile reading
+  container.addEventListener('touchstart', () => {
+    container.classList.add('is-paused');
+  }, { passive: true });
+
+  container.addEventListener('touchend', () => {
+    setTimeout(() => {
+      container.classList.remove('is-paused');
+    }, 1200);
+  }, { passive: true });
 }
 
 // Smooth Scroll

@@ -1021,6 +1021,212 @@ img {
 }
 
 /* --------------------------------------------------------------------------
+   TESTIMONIALS SLIDER (Pan Right to Left Marquee)
+   -------------------------------------------------------------------------- */
+.section-testimonials {
+  padding: 6.5rem 0 6rem;
+  background-color: var(--bg-midnight);
+  color: var(--text-light);
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.testimonials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.testimonials-badge {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+
+.testimonials-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-light);
+  line-height: 1.15;
+}
+
+.testimonials-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-light-muted);
+  max-width: 440px;
+  line-height: 1.7;
+}
+
+/* Marquee Slider Track */
+.testimonial-slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1.5rem 0 2rem;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.testimonial-slider-container:active {
+  cursor: grabbing;
+}
+
+.testimonial-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: panRightToLeft 45s linear infinite;
+  will-change: transform;
+}
+
+.testimonial-slider-container:hover .testimonial-track,
+.testimonial-slider-container.is-paused .testimonial-track {
+  animation-play-state: paused;
+}
+
+@keyframes panRightToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Individual Testimonial Card */
+.testimonial-card {
+  width: 430px;
+  max-width: 85vw;
+  flex-shrink: 0;
+  background-color: var(--bg-midnight-card);
+  border: 1px solid rgba(197, 155, 109, 0.28);
+  border-radius: 18px;
+  padding: 2.6rem 2.2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(197, 155, 109, 0.18);
+}
+
+.testimonial-stars {
+  color: var(--accent-gold);
+  font-size: 1.05rem;
+  letter-spacing: 0.22em;
+  margin-bottom: 1.3rem;
+  display: flex;
+  gap: 2px;
+}
+
+.testimonial-quote {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.18rem;
+  line-height: 1.68;
+  color: #F8F7F2;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.testimonial-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-gold);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+.testimonial-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.testimonial-name {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+}
+
+.testimonial-role {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-gold-light);
+}
+
+@media (max-width: 1024px) {
+  .testimonials-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-testimonials {
+    padding: 4.5rem 0 4rem;
+  }
+  .testimonial-card {
+    width: 320px;
+    padding: 2rem 1.6rem 1.8rem;
+  }
+  .testimonial-quote {
+    font-size: 1.05rem;
+  }
+  .testimonial-avatar {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-track {
+    animation: none !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  .testimonial-card {
+    scroll-snap-align: start;
+  }
+}
+
+/* --------------------------------------------------------------------------
    CONTACT & BOOKING (Ivory + Deep Midnight Accent)
    -------------------------------------------------------------------------- */
 .section-contact-trimmed {
