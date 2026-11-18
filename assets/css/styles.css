@@ -1025,7 +1025,7 @@ img {
    -------------------------------------------------------------------------- */
 .section-testimonials {
   padding: 3.8rem 0 3.4rem;
-  background-color: var(--bg-cream);
+  background-color: #EDE8D5;
   color: var(--text-dark);
   overflow: hidden;
   position: relative;
