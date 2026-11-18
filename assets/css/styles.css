@@ -1180,31 +1180,42 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   Floating WhatsApp Button (Clean & Subtle)
+   Floating WhatsApp Button (Prominent Luxury Circular Badge)
    -------------------------------------------------------------------------- */
 .floating-wa-pill {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 2.2rem;
+  right: 2.2rem;
   z-index: 500;
   background-color: #25D366;
-  color: #041407;
-  padding: 0.75rem 1.4rem;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
-  transition: var(--transition);
+  justify-content: center;
+  box-shadow: 0 10px 32px rgba(37, 211, 102, 0.45);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.floating-wa-pill svg {
+  width: 50px;
+  height: 50px;
+  fill: #FFFFFF;
+  display: block;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.18));
+}
+
+.floating-wa-pill span {
+  display: none;
 }
 
 .floating-wa-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
-  color: #000;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 16px 40px rgba(37, 211, 102, 0.6);
+  color: #FFFFFF;
 }
 
 /* --------------------------------------------------------------------------
@@ -1287,12 +1298,15 @@ img {
     right: 0;
   }
 
-  .floating-wa-pill span {
-    display: none;
+  .floating-wa-pill {
+    width: 70px;
+    height: 70px;
+    bottom: 1.5rem;
+    right: 1.5rem;
   }
 
-  .floating-wa-pill {
-    padding: 0.8rem;
-    border-radius: 50%;
+  .floating-wa-pill svg {
+    width: 42px;
+    height: 42px;
   }
 }
