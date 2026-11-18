@@ -1184,28 +1184,28 @@ img {
    -------------------------------------------------------------------------- */
 .floating-wa-pill {
   position: fixed;
-  bottom: 2.2rem;
-  right: 2.2rem;
+  bottom: 2rem;
+  right: 2rem;
   z-index: 500;
   background-color: #25D366;
   color: #FFFFFF;
-  width: 84px;
-  height: 84px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 32px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
   text-decoration: none;
 }
 
 .floating-wa-pill svg {
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   fill: #FFFFFF;
   display: block;
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.18));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.16));
 }
 
 .floating-wa-pill span {
@@ -1213,8 +1213,8 @@ img {
 }
 
 .floating-wa-pill:hover {
-  transform: translateY(-4px) scale(1.08);
-  box-shadow: 0 16px 40px rgba(37, 211, 102, 0.6);
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 14px 34px rgba(37, 211, 102, 0.58);
   color: #FFFFFF;
 }
 
@@ -1299,14 +1299,14 @@ img {
   }
 
   .floating-wa-pill {
-    width: 70px;
-    height: 70px;
-    bottom: 1.5rem;
-    right: 1.5rem;
+    width: 62px;
+    height: 62px;
+    bottom: 1.4rem;
+    right: 1.4rem;
   }
 
   .floating-wa-pill svg {
-    width: 42px;
-    height: 42px;
+    width: 36px;
+    height: 36px;
   }
 }
