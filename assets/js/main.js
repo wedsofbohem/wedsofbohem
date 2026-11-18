@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initCinematicLoader();
   initSmoothScroll();
   initCollectionFilter();
   initLightbox();
@@ -11,6 +12,64 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initScrollAnimations();
 });
+
+// Cinematic Website Loading Animation (Full-Screen Percentage Counter)
+function initCinematicLoader() {
+  const loader = document.getElementById('cinematicLoader');
+  const counterWrap = document.getElementById('loaderCounterWrap');
+  const numberEl = document.getElementById('loaderNumber');
+  const footerEl = document.querySelector('.loader-footer');
+
+  if (!loader || !counterWrap || !numberEl) return;
+
+  // Step 1: Smooth upward entrance and blur-to-sharp reveal
+  requestAnimationFrame(() => {
+    counterWrap.classList.add('is-revealed');
+    if (footerEl) footerEl.classList.add('is-revealed');
+  });
+
+  // Step 2 & 3: Smooth continuous count from 1% to 100% with subtle scaling
+  const duration = 1900; // Duration in ms
+  const startTime = performance.now();
+
+  function updateCounter(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(1, elapsed / duration);
+
+    // Cinematic smooth acceleration and deceleration curve
+    const ease = progress < 0.5
+      ? 4 * progress * progress * progress
+      : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+    // Continuous number from 1 to 100 without leading zeros
+    const currentNumber = Math.min(100, Math.max(1, Math.floor(1 + ease * 99)));
+    numberEl.textContent = currentNumber;
+
+    // Subtle scale effect during active counting
+    const microScale = 1 + Math.sin(progress * Math.PI) * 0.024;
+    numberEl.style.transform = `scale(${microScale})`;
+
+    if (progress < 1) {
+      requestAnimationFrame(updateCounter);
+    } else {
+      // Step 4: Reached 100% -> hold briefly
+      numberEl.textContent = 100;
+      numberEl.style.transform = 'scale(1)';
+
+      setTimeout(() => {
+        // Step 5: Fade out the entire loading screen smoothly to reveal website
+        loader.classList.add('is-fade-out');
+        document.body.classList.remove('is-loading');
+
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 800);
+      }, 350); // 350ms brief hold
+    }
+  }
+
+  requestAnimationFrame(updateCounter);
+}
 
 // Smooth Scroll
 function initSmoothScroll() {

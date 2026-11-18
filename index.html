@@ -12,9 +12,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
   
   <link rel="icon" type="image/png" href="assets/images/logo.png">
-  <link rel="stylesheet" href="assets/css/styles.css?v=5.3">
+  <link rel="stylesheet" href="assets/css/styles.css?v=6.0">
 </head>
-<body>
+<body class="is-loading">
+
+  <!-- Cinematic Website Loading Screen -->
+  <div class="cinematic-loader" id="cinematicLoader" aria-hidden="true" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="100">
+    <div class="loader-counter-wrap" id="loaderCounterWrap">
+      <span class="loader-number" id="loaderNumber">1</span><span class="loader-symbol">%</span>
+    </div>
+    <div class="loader-footer">
+      <span class="loader-footer-text">LOADING EXPERIENCE</span>
+    </div>
+  </div>
 
   <!-- Top Announcement Bar -->
   <div class="top-announcement">
@@ -671,6 +681,6 @@
     <span>WhatsApp Us</span>
   </a>
 
-  <script src="assets/js/main.js?v=4.0"></script>
+  <script src="assets/js/main.js?v=6.0"></script>
 </body>
 </html>
