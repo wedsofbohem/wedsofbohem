@@ -246,7 +246,7 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   Top Bar
+   Top Bar (Continuous Right-to-Left Ticker Marquee)
    -------------------------------------------------------------------------- */
 .top-announcement {
   background-color: #000B14;
@@ -254,24 +254,72 @@ img {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0.5rem 1rem;
-  text-align: center;
+  padding: 0.55rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  mask-image: linear-gradient(to right, transparent 0%, black 2.5%, black 97.5%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2.5%, black 97.5%, transparent 100%);
+}
+
+.top-announcement-track {
+  display: flex;
+  width: max-content;
+  flex-shrink: 0;
+  white-space: nowrap;
+  animation: topBarPanRightToLeft 36s linear infinite;
+}
+
+.top-announcement:hover .top-announcement-track,
+.top-announcement.is-paused .top-announcement-track {
+  animation-play-state: paused;
+}
+
+.top-announcement-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.top-announcement-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0 1.25rem;
+  flex-shrink: 0;
 }
 
 .top-announcement strong {
   color: var(--text-light);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .top-announcement a {
   color: var(--accent-gold-light);
   text-decoration: underline;
   text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.top-announcement a:hover {
+  color: #FFFFFF;
+}
+
+.top-announcement .ticker-sep {
+  opacity: 0.4;
+  color: var(--accent-gold);
+}
+
+@keyframes topBarPanRightToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* --------------------------------------------------------------------------

@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCollectionFilter();
   initLightbox();
   initTestimonialSlider();
+  initTopAnnouncementTicker();
   initMobileMenu();
   initContactForm();
   initScrollAnimations();
@@ -95,6 +96,22 @@ function initTestimonialSlider() {
   container.addEventListener('touchend', () => {
     setTimeout(() => {
       container.classList.remove('is-paused');
+    }, 1200);
+  }, { passive: true });
+}
+
+// Top Announcement Bar Ticker (Smooth Pause on Touch for Mobile)
+function initTopAnnouncementTicker() {
+  const bar = document.getElementById('topAnnouncement');
+  if (!bar) return;
+
+  bar.addEventListener('touchstart', () => {
+    bar.classList.add('is-paused');
+  }, { passive: true });
+
+  bar.addEventListener('touchend', () => {
+    setTimeout(() => {
+      bar.classList.remove('is-paused');
     }, 1200);
   }, { passive: true });
 }
