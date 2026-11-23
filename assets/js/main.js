@@ -90,37 +90,43 @@ function initHeroVideo() {
   video.playsInline = true;
   video.setAttribute('playsinline', '');
   video.setAttribute('webkit-playsinline', '');
+  video.setAttribute('muted', '');
 
-  // Force video reload to ensure fresh buffered stream
-  try {
-    video.load();
-  } catch (e) {
-    // ignore
+  // Ensure src is explicitly set on video element
+  if (!video.getAttribute('src') && video.querySelector('source')) {
+    video.src = video.querySelector('source').getAttribute('src');
   }
 
-  const startPlayback = () => {
+  const attemptPlay = () => {
+    video.muted = true;
     const playPromise = video.play();
     if (playPromise !== undefined) {
-      playPromise.catch(() => {
+      playPromise.then(() => {
+        // Autoplay active
+      }).catch((err) => {
         // Fallback for browsers requiring first user gesture
         const onInteraction = () => {
+          video.muted = true;
           video.play().catch(() => {});
           window.removeEventListener('click', onInteraction);
           window.removeEventListener('touchstart', onInteraction);
           window.removeEventListener('scroll', onInteraction);
         };
-        window.addEventListener('click', onInteraction, { once: true });
-        window.addEventListener('touchstart', onInteraction, { once: true });
-        window.addEventListener('scroll', onInteraction, { once: true });
+        window.addEventListener('click', onInteraction, { once: true, passive: true });
+        window.addEventListener('touchstart', onInteraction, { once: true, passive: true });
+        window.addEventListener('scroll', onInteraction, { once: true, passive: true });
       });
     }
   };
 
-  startPlayback();
+  // Attempt play immediately and on readiness events
+  attemptPlay();
+  video.addEventListener('loadeddata', attemptPlay);
+  video.addEventListener('canplay', attemptPlay);
 
   // Resume when page tab becomes active
   document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) {
+    if (!document.hidden && video.paused) {
       video.play().catch(() => {});
     }
   });
