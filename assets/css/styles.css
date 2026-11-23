@@ -1021,6 +1021,37 @@ img {
   color: var(--text-dark);
 }
 
+.studio-sub-italic {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  text-transform: none;
+  color: #5C5A55;
+  font-size: 0.85em;
+}
+
+.studio-available-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.contact-location-label {
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.3rem;
+}
+
+.contact-location-val {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
 /* --------------------------------------------------------------------------
    INTERACTIVE BANNER (Fixed Image / Oaks Style Parallax Statement)
    -------------------------------------------------------------------------- */
@@ -1125,7 +1156,8 @@ img {
 
 .why-card {
   border-top: 2px solid var(--text-dark);
-  padding-top: 1.5rem;
+  padding: 1.8rem 1.4rem 1.2rem;
+  transition: var(--transition);
 }
 
 .why-card-title {
@@ -1695,25 +1727,25 @@ img {
    -------------------------------------------------------------------------- */
 .floating-wa-pill {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 1.8rem;
+  right: 1.8rem;
   z-index: 500;
   background-color: #25D366;
   color: #FFFFFF;
-  width: 75px;
-  height: 75px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
   text-decoration: none;
 }
 
 .floating-wa-pill svg {
-  width: 44px;
-  height: 44px;
+  width: 28px;
+  height: 28px;
   fill: #FFFFFF;
   display: block;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.16));
@@ -1724,8 +1756,8 @@ img {
 }
 
 .floating-wa-pill:hover {
-  transform: translateY(-3px) scale(1.06);
-  box-shadow: 0 14px 34px rgba(37, 211, 102, 0.58);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 10px 24px rgba(37, 211, 102, 0.55);
   color: #FFFFFF;
 }
 
@@ -1768,7 +1800,7 @@ img {
   }
 
   .nav-menu,
-  .nav-btns .btn-pill-dark {
+  .nav-btns .btn-pill {
     display: none;
   }
 
@@ -1810,15 +1842,15 @@ img {
   }
 
   .floating-wa-pill {
-    width: 62px;
-    height: 62px;
-    bottom: 1.4rem;
-    right: 1.4rem;
+    width: 44px;
+    height: 44px;
+    bottom: 1.2rem;
+    right: 1.2rem;
   }
 
   .floating-wa-pill svg {
-    width: 36px;
-    height: 36px;
+    width: 24px;
+    height: 24px;
   }
 }
 
@@ -1951,12 +1983,24 @@ section,
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
+[data-theme="dark"] .section-services h2,
 [data-theme="dark"] .services-title {
   color: #FFFFFF;
 }
 
 [data-theme="dark"] .services-sub {
   color: #A3B1C2;
+}
+
+[data-theme="dark"] .service-item-trimmed {
+  background-color: #081B2B;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .service-item-trimmed:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 20px rgba(197, 155, 109, 0.15);
 }
 
 [data-theme="dark"] .service-item-row {
@@ -1971,29 +2015,77 @@ section,
   color: #A3B1C2;
 }
 
+[data-theme="dark"] .service-bullet-list {
+  color: #A3B1C2;
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Mode - Studio Section */
+[data-theme="dark"] .section-studio {
+  background-color: #010F1A;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .section-studio h2 {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .studio-sub-italic {
+  color: var(--accent-gold-light);
+}
+
+[data-theme="dark"] .section-studio p {
+  color: #A3B1C2;
+}
+
+[data-theme="dark"] .studio-available-title {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .studio-tag-pill {
+  background-color: #081B2B;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #F5F7FA;
+}
+
 /* Dark Mode - Approach Section */
 [data-theme="dark"] .section-approach {
   background-color: #010F1A;
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
+[data-theme="dark"] .section-approach h2,
 [data-theme="dark"] .approach-heading {
   color: #FFFFFF;
 }
 
+[data-theme="dark"] .section-approach > .container > p,
 [data-theme="dark"] .approach-sub {
   color: #A3B1C2;
 }
 
+[data-theme="dark"] .approach-box,
 [data-theme="dark"] .approach-step-card {
-  border-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background-color: #081B2B;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  transition: var(--transition);
 }
 
+[data-theme="dark"] .approach-box:hover,
+[data-theme="dark"] .approach-step-card:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 20px rgba(197, 155, 109, 0.15);
+}
+
+[data-theme="dark"] .approach-box-title,
 [data-theme="dark"] .approach-step-title {
   color: #FFFFFF;
 }
 
+[data-theme="dark"] .approach-box-text,
 [data-theme="dark"] .approach-step-desc {
   color: #A3B1C2;
 }
@@ -2004,6 +2096,7 @@ section,
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
+[data-theme="dark"] .section-why h2,
 [data-theme="dark"] .why-title {
   color: #FFFFFF;
 }
@@ -2014,7 +2107,20 @@ section,
 
 [data-theme="dark"] .why-card {
   background-color: #081B2B;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 2.2rem 1.8rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .why-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 20px rgba(197, 155, 109, 0.15);
 }
 
 [data-theme="dark"] .why-card-title {
@@ -2036,6 +2142,18 @@ section,
 
 [data-theme="dark"] .section-contact-trimmed p {
   color: #A3B1C2;
+}
+
+[data-theme="dark"] .section-contact-trimmed p strong {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .contact-location-label {
+  color: #A3B1C2;
+}
+
+[data-theme="dark"] .contact-location-val {
+  color: #FFFFFF;
 }
 
 [data-theme="dark"] .contact-card-trimmed {
@@ -2074,4 +2192,43 @@ section,
 [data-theme="dark"] .form-input-minimal::placeholder,
 [data-theme="dark"] .form-textarea-minimal::placeholder {
   color: rgba(255, 255, 255, 0.35);
+}
+
+[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* Dark Mode - Buttons & Common Controls */
+[data-theme="dark"] .btn-pill-dark {
+  background-color: var(--accent-gold);
+  color: #010F1A !important;
+  border-color: var(--accent-gold);
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(197, 155, 109, 0.25);
+}
+
+[data-theme="dark"] .btn-pill-dark:hover {
+  background-color: var(--accent-gold-light);
+  border-color: var(--accent-gold-light);
+  color: #010F1A !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(197, 155, 109, 0.4);
+}
+
+[data-theme="dark"] .error-card {
+  background: #081B2B;
+  border: 1px solid rgba(197, 155, 109, 0.35);
+}
+
+[data-theme="dark"] .error-title {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .error-message {
+  color: #A3B1C2;
+}
+
+[data-theme="dark"] .error-close {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.2);
 }

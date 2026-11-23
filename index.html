@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
   
   <link rel="icon" type="image/png" href="assets/images/logo.png">
-  <link rel="stylesheet" href="assets/css/styles.css?v=8.3">
+  <link rel="stylesheet" href="assets/css/styles.css?v=8.4">
   <script>
     (function() {
       var savedTheme = localStorage.getItem('wob_theme');
@@ -135,7 +135,12 @@
       </nav>
 
       <div class="nav-btns">
-        <!-- Dark / Light Mode Switch Toggle -->
+        <a href="#contact" class="btn-pill btn-pill-on-dark">Get in Touch</a>
+        <a href="https://api.whatsapp.com/send/?phone=919292255734&text&type=phone_number&app_absent=0" target="_blank" class="btn-pill btn-whatsapp-minimal">
+          WhatsApp
+        </a>
+
+        <!-- Dark / Light Mode Switch Toggle (Positioned at Far Top Right) -->
         <button type="button" class="theme-toggle-switch" id="themeToggleBtn" aria-label="Toggle dark / light mode" title="Switch to Dark Mode">
           <span class="theme-switch-track">
             <span class="theme-switch-icon icon-sun" aria-hidden="true">
@@ -160,10 +165,6 @@
           </span>
         </button>
 
-        <a href="#contact" class="btn-pill btn-pill-on-dark">Get in Touch</a>
-        <a href="https://api.whatsapp.com/send/?phone=919292255734&text&type=phone_number&app_absent=0" target="_blank" class="btn-pill btn-whatsapp-minimal">
-          WhatsApp
-        </a>
         <button type="button" class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Toggle menu">
           ☰
         </button>
@@ -467,14 +468,14 @@
           </span>
           <h2 style="font-size: clamp(2rem, 3.5vw, 3rem); text-transform: uppercase; line-height: 1.15; margin-bottom: 1.2rem;">
             THE STUDIO <br>
-            <span style="font-family: var(--font-editorial); font-style: italic; text-transform: none; color: #5C5A55; font-size: 0.85em;">A space for your next idea.</span>
+            <span class="studio-sub-italic">A space for your next idea.</span>
           </h2>
           <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem;">
             Weds of Bohem is more than a place to shoot. It is a space where ideas take shape. 
             Whether you're creating a campaign, shooting portraits, producing social content or working on a wedding concept, our studio gives you a controlled and creative environment to bring your vision to life.
           </p>
 
-          <div style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dark); font-weight: 600; margin-bottom: 0.6rem;">
+          <div class="studio-available-title">
             Available For:
           </div>
 
@@ -835,10 +836,10 @@
           </p>
 
           <div style="margin-bottom: 2rem; border-top: 1px solid var(--border-light); padding-top: 1.5rem;">
-            <div style="font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.3rem;">
+            <div class="contact-location-label">
               Studio Location
             </div>
-            <div style="font-size: 1.05rem; font-weight: 500;">
+            <div class="contact-location-val">
               📍 Thrikkodithanam, Kerala
             </div>
           </div>
