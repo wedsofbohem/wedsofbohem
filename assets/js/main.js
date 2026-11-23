@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initCinematicLoader();
+  initHeroVideo();
   initSmoothScroll();
   initCollectionFilter();
   initLightbox();
@@ -64,6 +65,11 @@ function initCinematicLoader() {
         loader.classList.add('is-fade-out');
         document.body.classList.remove('is-loading');
 
+        const heroVid = document.getElementById('heroVideo');
+        if (heroVid) {
+          heroVid.play().catch(() => {});
+        }
+
         setTimeout(() => {
           loader.style.display = 'none';
         }, 800);
@@ -72,6 +78,52 @@ function initCinematicLoader() {
   }
 
   requestAnimationFrame(updateCounter);
+}
+
+// Hero Video Background Loader & Reliable Playback
+function initHeroVideo() {
+  const video = document.getElementById('heroVideo') || document.querySelector('.hero-video-bg');
+  if (!video) return;
+
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+
+  // Force video reload to ensure fresh buffered stream
+  try {
+    video.load();
+  } catch (e) {
+    // ignore
+  }
+
+  const startPlayback = () => {
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Fallback for browsers requiring first user gesture
+        const onInteraction = () => {
+          video.play().catch(() => {});
+          window.removeEventListener('click', onInteraction);
+          window.removeEventListener('touchstart', onInteraction);
+          window.removeEventListener('scroll', onInteraction);
+        };
+        window.addEventListener('click', onInteraction, { once: true });
+        window.addEventListener('touchstart', onInteraction, { once: true });
+        window.addEventListener('scroll', onInteraction, { once: true });
+      });
+    }
+  };
+
+  startPlayback();
+
+  // Resume when page tab becomes active
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+      video.play().catch(() => {});
+    }
+  });
 }
 
 // Testimonials Slider (Smooth Pause & Touch Interaction)
