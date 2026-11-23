@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initCinematicLoader();
   initSmoothScroll();
   initCollectionFilter();
@@ -114,6 +115,43 @@ function initTopAnnouncementTicker() {
       bar.classList.remove('is-paused');
     }, 1200);
   }, { passive: true });
+}
+
+// Dark Mode / Light Mode Theme System
+function initThemeToggle() {
+  const themeToggles = [
+    document.getElementById('themeToggleBtn'),
+    document.getElementById('mobileThemeToggleBtn')
+  ].filter(Boolean);
+
+  if (!themeToggles.length) return;
+
+  // Retrieve saved theme or default to 'light'
+  const savedTheme = localStorage.getItem('wob_theme') || 'light';
+  applyTheme(savedTheme);
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('wob_theme', theme);
+
+    themeToggles.forEach(btn => {
+      btn.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+      btn.setAttribute('title', theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+    });
+  }
+
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(nextTheme);
+  }
+
+  themeToggles.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleTheme();
+    });
+  });
 }
 
 // Smooth Scroll
